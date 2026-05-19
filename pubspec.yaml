@@ -1,0 +1,48 @@
+name: coffee_shpo
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  get: ^4.6.6 
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  dio: ^5.4.3
+  hive_flutter: ^1.1.0
+  flutter_animate: ^4.5.0
+  gap: ^3.0.1
+  lottie: ^3.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/products/
+    - assets/images/categories/
+    - assets/images/onboarding/
+    - assets/animations/order_success.json
+
+  fonts:
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf
+          weight: 700
+
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DMSans/DMSans-Regular.ttf
+        - asset: assets/fonts/DMSans/DMSans-Medium.ttf
+          weight: 500

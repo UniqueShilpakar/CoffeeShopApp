@@ -9,6 +9,11 @@ class AppRoutes {
   static const String login    = '/login';
   static const String register = '/register';
   static const String otp      = '/otp';
+  // next session
+  static const String home     = '/home';
+  static const String menu     = '/menu';
+  static const String cart     = '/cart';
+  static const String profile  = '/profile';
 
   static final List<GetPage> pages = [
     GetPage(name: splash,   page: () => const SplashScreen()),

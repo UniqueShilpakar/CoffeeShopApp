@@ -1,64 +1,43 @@
-import 'package:flutter/material.dart';
-import 'app_colors.dart';
+class AppStrings {
+  // App
+  static const String appName       = 'Caffora';
+  static const String tagline       = 'Coffee & Desserts';
+  static const String craftedWith   = '☕  Crafted with love';
 
-class AppTextStyles {
-  static const TextStyle displayLarge = TextStyle(
-    fontFamily: 'PlayfairDisplay',
-    fontSize: 36,
-    fontWeight: FontWeight.w700,
-    color: AppColors.textDark,
-    height: 1.2,
-  );
+  // Landing
+  static const String heroTitle     = 'Your perfect\ncup awaits.';
+  static const String heroSubtitle  = 'Order premium coffee & desserts\ndelivered to your door.';
+  static const String getStarted    = 'Get Started';
+  static const String alreadyHave   = 'Already have an account?';
+  static const String signIn        = 'Sign In';
+  static const String topRated      = '4.9  Top Rated';
 
-  static const TextStyle displayMedium = TextStyle(
-    fontFamily: 'PlayfairDisplay',
-    fontSize: 28,
-    fontWeight: FontWeight.w700,
-    color: AppColors.textDark,
-    height: 1.3,
-  );
+  // Auth
+  static const String welcomeBack   = 'Welcome\nback 👋';
+  static const String loginSubtitle = 'Sign in to your Caffora account';
+  static const String createAccount = 'Create your\naccount ✨';
+  static const String registerSub   = 'Join Caffora and enjoy every sip';
+  static const String fullName      = 'Full name';
+  static const String emailAddress  = 'Email address';
+  static const String phoneNumber   = 'Phone number';
+  static const String password      = 'Password';
+  static const String forgotPass    = 'Forgot password?';
+  static const String signUp        = 'Sign Up';
+  static const String createBtn     = 'Create Account';
+  static const String signInBtn     = 'Sign In';
+  static const String terms         = 'By signing up you agree to our\nTerms of Service and Privacy Policy';
+  static const String noAccount     = "Don't have an account?";
+  static const String orContinue    = 'or continue with';
+  static const String phoneOtp      = 'Continue with Phone OTP';
 
-  static const TextStyle headingMedium = TextStyle(
-    fontFamily: 'DMSans',
-    fontSize: 20,
-    fontWeight: FontWeight.w500,
-    color: AppColors.textDark,
-  );
+  // OTP
+  static const String verifyTitle   = 'Verify your\nnumber 🔐';
+  static const String verifySub     = 'We sent a 4-digit code to ';
+  static const String verifySub2    = 'Enter the 4-digit code we sent you';
+  static const String verifyBtn     = 'Verify & Continue';
+  static const String resendOtp     = 'Resend OTP';
+  static const String didntReceive  = "Didn't receive it?";
 
-  static const TextStyle bodyLarge = TextStyle(
-    fontFamily: 'DMSans',
-    fontSize: 16,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textMedium,
-    height: 1.6,
-  );
-
-  static const TextStyle bodyMedium = TextStyle(
-    fontFamily: 'DMSans',
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textMedium,
-  );
-
-  static const TextStyle labelMedium = TextStyle(
-    fontFamily: 'DMSans',
-    fontSize: 14,
-    fontWeight: FontWeight.w500,
-    color: AppColors.textDark,
-  );
-
-  static const TextStyle button = TextStyle(
-    fontFamily: 'DMSans',
-    fontSize: 16,
-    fontWeight: FontWeight.w500,
-    color: AppColors.white,
-    letterSpacing: 0.3,
-  );
-
-  static const TextStyle caption = TextStyle(
-    fontFamily: 'DMSans',
-    fontSize: 12,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textLight,
-  );
+  // Errors
+  static const String fillAllFields = 'Please fill in all fields.';
 }

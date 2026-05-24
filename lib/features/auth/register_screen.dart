@@ -102,7 +102,7 @@ class RegisterScreen extends StatelessWidget {
                     obscureText: controller.obscurePassword.value,
                     onChanged: (v) => controller.password.value = v,
                     suffix: GestureDetector(
-                      onTap: controller.tooglePasswordVisibility,
+                      onTap: controller.togglePasswordVisibility,
                       child: Icon(
                         controller.obscurePassword.value
                             ? Icons.visibility_off_outlined
@@ -114,6 +114,7 @@ class RegisterScreen extends StatelessWidget {
                   )).animate().fadeIn(delay: 500.ms, duration: 500.ms),
 
               const Gap(12),
+              
 
               Obx(() => controller.errorMessage.value.isNotEmpty
                   ? Padding(

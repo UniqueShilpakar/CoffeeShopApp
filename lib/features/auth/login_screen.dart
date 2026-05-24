@@ -85,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                     obscureText: controller.obscurePassword.value,
                     onChanged: (v) => controller.password.value = v,
                     suffix: GestureDetector(
-                      onTap: controller.tooglePasswordVisibility,
+                      onTap: controller.togglePasswordVisibility,
                       child: Icon(
                         controller.obscurePassword.value
                             ? Icons.visibility_off_outlined

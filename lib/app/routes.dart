@@ -1,4 +1,5 @@
 import 'package:coffee_shpo/features/auth/login_screen.dart';
+import 'package:coffee_shpo/features/auth/otp_screen.dart';
 import 'package:coffee_shpo/features/auth/register_screen.dart';
 import 'package:coffee_shpo/features/landing/landing_screen.dart';
 import 'package:get/get.dart';
@@ -23,6 +24,6 @@ class AppRoutes {
     GetPage(name: landing,  page: () => const LandingScreen()),
     GetPage(name: login,    page: () => const LoginScreen()),
     GetPage(name: register, page: () => const RegisterScreen()),
-    // GetPage(name: otp,      page: () => const OtpScreen()),
+    GetPage(name: otp,      page: () => const OtpScreen()),
   ];
 }

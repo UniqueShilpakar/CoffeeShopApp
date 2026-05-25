@@ -5,11 +5,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import '../../app/routes.dart';
-
 import '../../data/models/product_model.dart';
 import '../../shared/widgets/bottom_nav_bar.dart';
 import '../../shared/widgets/category_chip.dart';
-
 import '../../shared/widgets/search_bar.dart';
 import '../../shared/widgets/star_rating.dart';
 import 'home_controller.dart';
@@ -24,14 +22,14 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      bottomNavigationBar: Obx(() => CafforaBottomNavBar(
-            currentIndex: 0,
-            onTap: (i) {
-              if (i == 1) Get.toNamed(AppRoutes.menu);
-              if (i == 2) Get.toNamed(AppRoutes.cart);
-              if (i == 3) Get.toNamed(AppRoutes.profile);
-            },
-          )),
+      bottomNavigationBar: CafforaBottomNavBar( // ← NO Obx here
+        currentIndex: 0,
+        onTap: (i) {
+          if (i == 1) Get.toNamed(AppRoutes.menu);
+          if (i == 2) Get.toNamed(AppRoutes.cart);
+          if (i == 3) Get.toNamed(AppRoutes.profile);
+        },
+      ),
       body: SafeArea(
         child: RefreshIndicator(
           color: AppColors.primary,
@@ -48,10 +46,10 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Good morning ☀️',
                           style: TextStyle(
                             fontFamily: 'DMSans',
@@ -59,8 +57,8 @@ class HomeScreen extends StatelessWidget {
                             color: AppColors.textLight,
                           ),
                         ),
-                        const Gap(2),
-                        const Text(
+                        Gap(2),
+                        Text(
                           'What would you like?',
                           style: TextStyle(
                             fontFamily: 'PlayfairDisplay',
@@ -98,12 +96,12 @@ class HomeScreen extends StatelessWidget {
                 Obx(() => controller.isLoading.value
                     ? const ShimmerBox(
                         width: double.infinity, height: 130, radius: 20)
-                    : OfferBannerWidget(banners: controller.banners)
+                    : OfferBannerWidget(banners: controller.banners),
                 ).animate().fadeIn(delay: 200.ms, duration: 500.ms),
 
                 const Gap(28),
 
-                // Categories
+                // Categories title
                 const Text(
                   'Categories',
                   style: TextStyle(
@@ -116,14 +114,14 @@ class HomeScreen extends StatelessWidget {
 
                 const Gap(14),
 
+                // Categories chips
                 Obx(() => controller.isLoading.value
                     ? Row(
                         children: List.generate(
                           4,
                           (i) => Padding(
                             padding: const EdgeInsets.only(right: 10),
-                            child: ShimmerBox(
-                                width: 80, height: 38, radius: 12),
+                            child: ShimmerBox(width: 80, height: 38, radius: 12),
                           ),
                         ),
                       )
@@ -135,20 +133,21 @@ class HomeScreen extends StatelessWidget {
                               padding: const EdgeInsets.only(right: 10),
                               child: Obx(() => CategoryChip(
                                     label: cat.name,
-                                    isSelected: controller
-                                            .selectedCategory.value ==
-                                        cat.name,
+                                    isSelected:
+                                        controller.selectedCategory.value ==
+                                            cat.name,
                                     onTap: () =>
                                         controller.selectCategory(cat.name),
                                   )),
                             );
                           }).toList(),
                         ),
-                      )).animate().fadeIn(delay: 350.ms, duration: 500.ms),
+                      ),
+                ).animate().fadeIn(delay: 350.ms, duration: 500.ms),
 
                 const Gap(28),
 
-                // Popular
+                // Popular heading
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -178,15 +177,14 @@ class HomeScreen extends StatelessWidget {
 
                 const Gap(16),
 
-                // Product cards horizontal scroll
+                // Product cards
                 Obx(() => controller.isLoading.value
                     ? SizedBox(
                         height: 220,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 3,
-                          itemBuilder: (_, __) =>
-                              const ProductCardShimmer(),
+                          itemBuilder: (_, __) => const ProductCardShimmer(),
                         ),
                       )
                     : SizedBox(
@@ -198,7 +196,8 @@ class HomeScreen extends StatelessWidget {
                             product: controller.popularProducts[i],
                           ),
                         ),
-                      )).animate().fadeIn(delay: 450.ms, duration: 500.ms),
+                      ),
+                ).animate().fadeIn(delay: 450.ms, duration: 500.ms),
 
                 const Gap(32),
               ],
@@ -212,16 +211,12 @@ class HomeScreen extends StatelessWidget {
 
 class _ProductCard extends StatelessWidget {
   final ProductModel product;
-
   const _ProductCard({required this.product});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: () => Get.toNamed(
-      //   AppRoutes.productDetail,
-      //   arguments: product,
-      // ),
+      onTap: () => Get.toNamed(AppRoutes.productDetail, arguments: product),
       child: Container(
         width: 160,
         margin: const EdgeInsets.only(right: 16),
@@ -239,20 +234,17 @@ class _ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image
             Container(
               height: 120,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: AppColors.surface,
-                borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(20)),
+                borderRadius:
+                    BorderRadius.vertical(top: Radius.circular(20)),
               ),
               child: Center(
                 child: Icon(Icons.coffee_rounded,
                     size: 48,
                     color: AppColors.primary.withOpacity(0.3)),
-                // Replace with:
-                // Image.asset(product.imageAsset, fit: BoxFit.cover)
               ),
             ),
             Padding(

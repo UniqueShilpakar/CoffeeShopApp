@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+
 import 'auth_controller.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -111,11 +112,11 @@ class LoginScreen extends StatelessWidget {
                 ),
               ).animate().fadeIn(delay: 450.ms, duration: 500.ms),
 
-              const Gap(12),
+              const Gap(20),
 
               Obx(() => controller.errorMessage.value.isNotEmpty
                   ? Padding(
-                      padding: const EdgeInsets.only(bottom: 12),
+                      padding: const EdgeInsets.only(bottom: 16),
                       child: Text(
                         controller.errorMessage.value,
                         style: const TextStyle(
@@ -132,56 +133,6 @@ class LoginScreen extends StatelessWidget {
                     isLoading: controller.isLoading.value,
                     onPressed: controller.login,
                   )).animate().fadeIn(delay: 500.ms, duration: 500.ms),
-
-              const Gap(32),
-
-              Row(children: [
-                const Expanded(child: Divider(color: AppColors.divider)),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Text(
-                    AppStrings.orContinue,
-                    style: const TextStyle(
-                      fontFamily: 'DMSans',
-                      fontSize: 12,
-                      color: AppColors.textLight,
-                    ),
-                  ),
-                ),
-                const Expanded(child: Divider(color: AppColors.divider)),
-              ]).animate().fadeIn(delay: 550.ms, duration: 500.ms),
-
-              const Gap(24),
-
-              GestureDetector(
-                onTap: () => Get.toNamed(AppRoutes.otp),
-                child: Container(
-                  width: double.infinity,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: AppColors.surface,
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppColors.divider),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.phone_outlined,
-                          color: AppColors.primary, size: 20),
-                      Gap(10),
-                      Text(
-                        AppStrings.phoneOtp,
-                        style: TextStyle(
-                          fontFamily: 'DMSans',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.textDark,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ).animate().fadeIn(delay: 600.ms, duration: 500.ms),
 
               const Gap(40),
 
@@ -208,7 +159,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              ).animate().fadeIn(delay: 650.ms, duration: 500.ms),
+              ).animate().fadeIn(delay: 550.ms, duration: 500.ms),
 
               const Gap(32),
             ],
